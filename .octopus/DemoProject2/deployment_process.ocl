@@ -1,0 +1,25 @@
+step "Manual Intervention Required" {
+
+    action {
+        action_type = "Octopus.Manual"
+        properties = {
+            Octopus.Action.Manual.BlockConcurrentDeployments = "False"
+            Octopus.Action.Manual.Instructions = "Please approve"
+            Octopus.Action.Manual.ResponsibleTeamIds = "Octopus Managers"
+        }
+        worker_pool_variable = ""
+    }
+}
+
+step "Deployment Script" {
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.Script.ScriptBody = "Write-Host \"Deploying\""
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "PowerShell"
+        }
+        worker_pool = "Hosted Windows"
+    }
+}
