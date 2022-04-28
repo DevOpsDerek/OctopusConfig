@@ -16,7 +16,7 @@ step "Run a Script" {
     action {
         action_type = "Octopus.Script"
         properties = {
-            Octopus.Action.Script.ScriptBody = "Write-Host \"Here be dragons\""
+            Octopus.Action.Script.ScriptBody = "Write-Host \"Help me Obi-Wan, you're my only hope!\""
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
         }
