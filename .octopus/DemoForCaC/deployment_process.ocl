@@ -6,6 +6,7 @@ step "Manual Intervention Required" {
             Octopus.Action.Manual.BlockConcurrentDeployments = "False"
             Octopus.Action.Manual.Instructions = "Please check and confirm. "
             Octopus.Action.Manual.ResponsibleTeamIds = "Space Managers"
+            Octopus.Action.RunOnServer = "false"
         }
         worker_pool_variable = ""
     }
@@ -16,7 +17,10 @@ step "Run a Script" {
     action {
         action_type = "Octopus.Script"
         properties = {
-            Octopus.Action.Script.ScriptBody = "Write-Host \"Help me Obi-Wan, you're my only hope!\""
+            Octopus.Action.Script.ScriptBody = <<-EOT
+                Write-Host "Help me Obi-Wan, you're my only hope!"
+                Write-Host "May the Config as Code be with you"
+            EOT
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
         }
