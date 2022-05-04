@@ -1,0 +1,12 @@
+step "Run a test script" {
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.Script.ScriptBody = "Write-Host \"We are testing Config as Code\""
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "PowerShell"
+        }
+        worker_pool = "Hosted Windows"
+    }
+}
